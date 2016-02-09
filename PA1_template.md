@@ -1,7 +1,9 @@
 ---
-title: "data"
+title: "PA1_template.md"
 output: html_document
 ---
+install.packages("lubridate")
+library(lubridate)
 library(knitr)
 library("lattice")
 data=read.csv("~/Documents/Coursera/Reproducible Research/Course Project 1/activity.csv")
@@ -91,8 +93,7 @@ steps_each_day_median_filled_in <- median(steps_each_day_filled_in$steps)
 ## 1. Create a new factor variable in the dataset with two levels – “weekday” and 
 ## “weekend” indicating whether a given date is a weekday or weekend day.
 
-install.packages("lubridate")
-library(lubridate)
+
 
 week <- wday(activity_filled_in$date)
 week_day <- week
