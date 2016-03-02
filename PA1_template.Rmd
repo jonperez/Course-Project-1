@@ -10,7 +10,7 @@ data=read.csv("~/Documents/Coursera/Reproducible Research/Course Project 1/activ
 # What is mean total number of steps taken per day?
 
 ## 1.Calculate the total number of steps taken per day
-```{r}
+```{r,echo=TRUE}
 steps_day<-sum(data$steps,na.rm=TRUE)
 steps_day
 ```
@@ -22,7 +22,7 @@ hist(steps_each_day$steps)
 ```
 
 ## 3.Calculate and report the mean and median of the total number of steps taken per day
-```{r}
+```{r,echo=TRUE}
 steps_each_day_mean <- mean(steps_each_day$steps)
 steps_each_day_median <- median(steps_each_day$steps)
 steps_each_day_mean
@@ -40,7 +40,7 @@ plot(x = five_minutes_average$interval, y = five_minutes_average$steps, type = "
 
 ## 2. Which 5-minute interval, on average across all the days in the dataset, contains the 
 ## maximum number of steps?
-```{r}
+```{r,echo=TRUE}
 max_steps <- max(five_minutes_average$steps)
   for (i in 1:288) 
   {
@@ -85,7 +85,7 @@ for (i in 1:17568) # loop to find the na
 ```
 
 ## 4.  Make a histogram of the total number of steps taken each day
-```{r}
+```{r,echo=TRUE}
 steps_each_day_filled_in <- aggregate(steps~date, data=activity_filled_in, FUN=sum, na.rm=TRUE)
 hist(steps_each_day_filled_in$steps)
 ```
@@ -102,7 +102,7 @@ steps_each_day_median_filled_in <- median(steps_each_day_filled_in$steps)
 ## 1. Create a new factor variable in the dataset with two levels – “weekday” and 
 ## “weekend” indicating whether a given date is a weekday or weekend day.
 
-```{r}
+```{r,echo=TRUE}
 
 library(lubridate)
 
@@ -128,11 +128,11 @@ for (i in 1:17568) # loop to find the na
 ```
 
 ### Creating a new factor variable in the dataset "activity_filled_in" 
-```{r}
+```{r,echo=TRUE}
 activity_filled_in$weekday <-week_day
 ```
 ## 2. Make a panel plot containing a time series plot (i.e. type = "l") of the 5-minute interval (x-axis) and the average number of steps taken, averaged across all weekday days or weekend days (y-axis).
-```{r}
+```{r,echo=TRUE}
 weekday <- grep("weekday",activity_filled_in$weekday)
 weekday_frame <- activity_filled_in[weekday,]
 weekend_frame <- activity_filled_in[-weekday,]
