@@ -4,7 +4,7 @@ output: html_document
 ---
 ```{r}
 library(knitr)
-library("lattice")
+library(lattice)
 data=read.csv("~/Documents/Coursera/Reproducible Research/Course Project 1/activity.csv")
 ```
 # What is mean total number of steps taken per day?

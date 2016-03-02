@@ -4,7 +4,7 @@ output: html_document
 ---
 ```{r}
 library(knitr)
-library("lattice")
+library(lattice)
 data=read.csv("~/Documents/Coursera/Reproducible Research/Course Project 1/activity.csv")
 ```
 # What is mean total number of steps taken per day?
@@ -16,7 +16,7 @@ steps_day
 ```
 
 ## 2.Make a histogram of the total number of steps taken each day
-```{r,echo=TRUE}
+```{r,echo=FALSE}
 steps_each_day<-aggregate(steps~date, data=data, FUN=sum, na.rm=TRUE)
 hist(steps_each_day$steps)
 ```
@@ -33,7 +33,7 @@ steps_each_day_median
 
 ## 1. Make a time series plot (i.e. type = "l") of the 5-minute interval (x-axis) and the 
 ## average number of steps taken, averaged across all days (y-axis)
-```{r,echo=TRUE}
+```{r,echo=FALSE}
 five_minutes_average <- aggregate(steps~interval, data=data, FUN=mean, na.rm=TRUE)
 plot(x = five_minutes_average$interval, y = five_minutes_average$steps, type = "l")
 ```
@@ -85,7 +85,7 @@ for (i in 1:17568) # loop to find the na
 ```
 
 ## 4.  Make a histogram of the total number of steps taken each day
-```{r,echo=TRUE}
+```{r,echo=FALSE}
 steps_each_day_filled_in <- aggregate(steps~date, data=activity_filled_in, FUN=sum, na.rm=TRUE)
 hist(steps_each_day_filled_in$steps)
 ```
@@ -132,7 +132,7 @@ for (i in 1:17568) # loop to find the na
 activity_filled_in$weekday <-week_day
 ```
 ## 2. Make a panel plot containing a time series plot (i.e. type = "l") of the 5-minute interval (x-axis) and the average number of steps taken, averaged across all weekday days or weekend days (y-axis).
-```{r,echo=TRUE}
+```{r,echo=FALSE}
 weekday <- grep("weekday",activity_filled_in$weekday)
 weekday_frame <- activity_filled_in[weekday,]
 weekend_frame <- activity_filled_in[-weekday,]
